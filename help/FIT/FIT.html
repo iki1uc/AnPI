@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FIT</title>
+</head>
+<body>
+
+<h2>FIT – 1× Bildung aktiv</h2>
+
+<script>
+// Universeller 1×-Kern (nanomes³)
+const CORE = {
+    name: "FIT",
+    mode: "1x",
+    nano: 0.000001,   // nanomes³ – kleinste Einheit
+    fit: 1.0,         // FIT-Level (0.0–1.0)
+    calc: "ready",    // Bereit zur Berechnung
+    reorg: "open",    // Reorganisation erlaubt
+    coop: true,       // Kooperation aktiv
+    arg: "help"       // Argumenteria aktiv
+};
+
+// Export für andere Module
+window.CORE = CORE;
+
+// Anzeige
+document.write("<b>FIT-Level:</b> " + CORE.fit + "<br>");
+document.write("<b>nanomes³:</b> " + CORE.nano + "<br>");
+document.write("<b>calc:</b> " + CORE.calc + "<br>");
+document.write("<b>reORG:</b> " + CORE.reorg + "<br>");
+document.write("<b>coop:</b> " + CORE.coop + "<br>");
+document.write("<b>arg:</b> " + CORE.arg + "<br>");
+
+</script>
+
+<!-- WURMLOCH / GATE -->
+<button onclick="location.href='index.html?gate=fit'">
+    FIT durch Gate senden
+</button>
+
+</body>
+</html>
+

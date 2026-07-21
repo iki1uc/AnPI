@@ -1,0 +1,9 @@
+﻿Modul,Aufgabe,Output
+merge,Achsen verschmelzen,octa²□
+drift,Drift messen,Drift‑Matrix
+realign,Vor‑Ausrichtung,Pre‑Align
+align,perfekte Ausrichtung,octa³.align
+vector,Korrektur‑Vektor,6D‑Vektor
+detect,Fehler erkennen,Δ‑Matrix
+angle,Winkel berechnen,ΔAngle
+compare,finale Bewertung,Validierungs‑Matrix

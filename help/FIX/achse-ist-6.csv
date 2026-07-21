@@ -1,0 +1,7 @@
+﻿Achse,Ist,Soll,ΔAngle
+X,Xᵢ,Xₛ,ΔX
+Y,Yᵢ,Yₛ,ΔY
+Z,Zᵢ,Zₛ,ΔZ
+T (Orbit),Tᵢ,Tₛ,ΔOrbit
+S (Meta),Sᵢ,Sₛ,ΔMeta
+MOVE,Mᵢ,Mₛ,ΔMove
