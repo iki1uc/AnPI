@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="DE">
+<head>
+  <meta charset="UTF-8">
+  <title>DE Portal – WELT System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- DE Startsprache -->
+  <script>
+    window.WELT_CURRENT_LANGUAGE = "DE";
+  </script>
+
+  <!-- VISUAL-HINTERGRUND CSS -->
+  <style>
+    /* Hintergrund */
+    #welt-visual-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      z-index: -1;
+    }
+
+    /* Stargate */
+    #stargate {
+      position: absolute;
+      width: 75%;
+      height: 75%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 20px solid #666;
+      box-shadow: 0 0 40px #00aaff;
+      background: radial-gradient(circle, #003344, #000000);
+    }
+
+    /* Wasser-Effekt */
+    #water-effect {
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: rgba(0, 150, 255, 0.3);
+      animation: waterPulse 4s infinite ease-in-out;
+    }
+
+    @keyframes waterPulse {
+      0%   { opacity: 0.4; }
+      50%  { opacity: 0.8; }
+      100% { opacity: 0.4; }
+    }
+
+    /* Brandenburger Tor */
+    #brandenburger-tor {
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.9;
+    }
+
+    /* HH-Würfel */
+    #hh-cube {
+      position: absolute;
+      width: 15%;
+      height: 15%;
+      left: 50%;
+      top: 15%;
+      transform: translate(-50%, -50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: cubeFloat 6s infinite ease-in-out;
+    }
+
+    @keyframes cubeFloat {
+      0%   { transform: translate(-50%, -50%) rotate(0deg); }
+      50%  { transform: translate(-50%, -60%) rotate(180deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- VISUAL-HINTERGRUND -->
+  <div id="welt-visual-bg">
+    <div id="stargate"></div>
+    <div id="water-effect"></div>
+    <div id="brandenburger-tor"></div>
+    <div id="hh-cube"></div>
+  </div>
+
+  <!-- Sprachsystem -->
+  <div id="language-index">
+    <button data-lang="DE">Deutsch</button>
+    <button data-lang="TR">Türkçe</button>
+    <button data-lang="EN">English</button>
+
+    <!-- frei wählbare Slots -->
+    <button data-lang="DA">du</button>
+    <button data-lang="NE">er</button>
+    <button data-lang="BEN">ich</button>
+  </div>
+
+  <!-- Hauptanzeige -->
+  <div id="portal-screen"></div>
+
+  <!-- Sprachumschalter -->
+  <script>
+    function WELT_language_switch(lang) {
+      window.WELT_CURRENT_LANGUAGE = lang;
+      console.log("Sprache gewechselt zu:", lang);
+      loadLanguageRoom(lang);
+    }
+
+    document.querySelectorAll('#language-index button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        WELT_language_switch(lang);
+      });
+    });
+  </script>
+
+  <!-- VISUAL-BILDER LADEN -->
+  <script>
+    document.getElementById("brandenburger-tor").style.backgroundImage =
+      "url('BT.png')";
+
+    document.getElementById("hh-cube").style.backgroundImage =
+      "url('HHcube.png')";
+  </script>
+
+  <!-- DE + WELT + EDEN + HI + PORT Loader -->
+  <script>
+    function loadLanguageRoom(lang) {
+      let file = "";
+
+      switch(lang) {
+        case "DE": file = "DE.room"; break;
+        case "TR": file = "TR.room"; break;
+        case "EN": file = "EN.room"; break;
+
+        case "DA": file = "DA.html"; break;
+        case "NE": file = "NE.html"; break;
+        case "BEN": file = "BEN.html"; break;
+      }
+
+      document.getElementById("portal-screen").innerText =
+        "Lade: " + file + " … (DE + WELT + EDEN aktiv)";
+    }
+
+    // Start in DE
+    loadLanguageRoom("DE");
+  </script>
+
+</body>
+</html>
