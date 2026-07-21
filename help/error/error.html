@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ERROR v1.01</title>
+</head>
+<body>
+
+<h1>RESPO: ERROR (v1.01)</h1>
+
+<!-- BASIS (NChelpU) -->
+<h2>Sender:</h2>
+<p id="sender"></p>
+
+<h2>Bereich:</h2>
+<p id="bereich"></p>
+
+<h2>Fehler:</h2>
+<p id="fehler"></p>
+
+<hr>
+
+<!-- MASTER-META EBENE (v1.01) -->
+<h2>ID:</h2>
+<p id="id"></p>
+
+<h2>EICH:</h2>
+<p id="eich"></p>
+
+<h2>GEN:</h2>
+<p id="gen"></p>
+
+<h2>Mode:</h2>
+<p id="mode"></p>
+
+<h2>Position:</h2>
+<p id="pos"></p>
+
+<h2>Tech:</h2>
+<p id="tech"></p>
+
+<h2>Ort:</h2>
+<p id="ort"></p>
+
+<h2>Zeit:</h2>
+<p id="zeit"></p>
+
+<h2>Datum:</h2>
+<p id="datum"></p>
+
+<hr>
+
+<a href="index.html">Zurück zu ROOT</a>
+
+<script>
+  const p = new URLSearchParams(window.location.search);
+
+  // BASIS (NChelpU)
+  document.getElementById("sender").innerText =
+    p.get("from") || "unbekannt";
+
+  document.getElementById("bereich").innerText =
+    p.get("active") || "nicht gesetzt";
+
+  document.getElementById("fehler").innerText =
+    p.get("hint") || "Kein Fehler gemeldet.";
+
+  // MASTER-META (v1.01)
+  document.getElementById("id").innerText = p.get("id") || "-";
+  document.getElementById("eich").innerText = p.get("eich") || "-";
+  document.getElementById("gen").innerText = p.get("gen") || "-";
+  document.getElementById("mode").innerText = p.get("mode") || "NC";
+  document.getElementById("pos").innerText = p.get("pos") || "-";
+  document.getElementById("tech").innerText = p.get("tech") || "-";
+  document.getElementById("ort").innerText = p.get("ort") || "-";
+  document.getElementById("zeit").innerText = p.get("zeit") || "-";
+
+  // DATUM (automatisch, falls nicht gesetzt)
+  document.getElementById("datum").innerText =
+    p.get("datum") || new Date().toISOString();
+</script>
+
+</body>
+</html>
