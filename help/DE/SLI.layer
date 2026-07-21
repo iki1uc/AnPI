@@ -1,0 +1,50 @@
+# SLI.layer — Schicht‑Link‑Interface mit 0‑Ankern
+# Jede Öffnung besitzt mindestens einen 0‑Anker
+
+[SLI0]
+version = 1.0
+type = "layer-link"
+zero = 0
+
+# ============================
+# 1. EPOCHE‑Anker (81‑Matrix)
+# ============================
+epoch.anchor = [0,9,18, 27,36,45, 54,63,72]
+
+# ============================
+# 2. RAUM‑Anker (27‑E‑Raum)
+# ============================
+space.anchor = [0,3,6, 9,12,15, 18,21,24]
+
+# ============================
+# 3. SLI‑Öffnungen (DE/EN/TR)
+# ============================
+open.DE0 = ["TR","EN"]
+open.EN0 = ["DE","TR"]
+open.TR0 = ["DE","EN"]
+
+# ============================
+# 4. SLI‑Matrix‑Zonen (mit 0‑Ankern)
+# ============================
+zone.DE0 = [0,1,2, 9,10,11, 18,19,20]
+zone.EN0 = [27,28,29, 36,37,38, 45,46,47]
+zone.TR0 = [54,55,56, 63,64,65, 72,73,74]
+
+# ============================
+# 5. Vector‑Bindung (6d0 / 12e0 / 6e0)
+# ============================
+vector.bind.DE0 = "6d0"
+vector.bind.EN0 = "12e0"
+vector.bind.TR0 = "6e0"
+
+# ============================
+# 6. Opta‑Bindung (maßrein)
+# ============================
+opta.bind.DE0 = ["port.fit0","port.fix0","port.allign0"]
+opta.bind.EN0 = ["port.score0","port.capture0","port.tweak0"]
+opta.bind.TR0 = ["port.fix0","port.win0","port.tweak0"]
+
+# ============================
+# 7. SLI‑Regel
+# ============================
+SLI.rule = "0 ist Öffnungs‑Anker jeder Schicht"
