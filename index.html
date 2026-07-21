@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>AnPI · Raum‑Router</title>
+
+<style>
+body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+h1 { color:#6cf; letter-spacing:4px; margin-bottom:30px; }
+.block { background:#111; border:1px solid #333; padding:25px; margin-bottom:30px; border-radius:8px; margin-bottom:30px; }
+.title { font-size:22px; color:#6cf; margin-bottom:10px; }
+a { color:#6cf; text-decoration:none; font-weight:bold; display:block; margin:6px 0; }
+pre { background:#000; border-left:3px solid #6cf; padding:15px; white-space:pre-wrap; }
+</style>
+
+</head>
+
+<body>
+
+<h1>AnPI · Raum‑Router</h1>
+
+<div class="block">
+    <div class="title">Räume</div>
+    <a href="ROOT/index.html">ROOT</a>
+    <a href="HEAD/HEAD.room">HEAD</a>
+    <a href="BODY/BODY.room">BODY</a>
+    <a href="HTML/HTML.room">HTML</a>
+    <a href="STYLE/STYLE.room">STYLE</a>
+    <a href="RUN/RUN.boot">RUN</a>
+    <a href="API/index.html">API</a>
+    <a href="ANKER/index.html">ANKER</a>
+</div>
+
+<div class="block">
+    <div class="title">System‑Status</div>
+    <pre id="sys"></pre>
+</div>
+
+<script>
+(async function () {
+
+    const rooms = [
+        "ROOT/index.html",
+        "HEAD/HEAD.room",
+        "BODY/BODY.room",
+        "HTML/HTML.room",
+        "STYLE/STYLE.room",
+        "RUN/RUN.boot",
+        "API/index.html",
+        "ANKER/index.html"
+    ];
+
+    let status = "";
+
+    for (const r of rooms) {
+        const ok = await fetch(r).then(x => x.ok).catch(() => false);
+        status += `${r} → ${ok ? "OK" : "FEHLT"}\n`;
+    }
+
+    document.getElementById("sys").innerText = status;
+
+})();
+</script>
+
+</body>
+</html>
