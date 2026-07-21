@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX – Gate</title>
+</head>
+<body>
+
+<h2>INDEX – Gate aktiv</h2>
+
+<script>
+// Gate-Empfang
+const gate = new URLSearchParams(window.location.search).get("gate");
+
+if (gate === "fit") {
+    document.write("<b>FIT ist eingetroffen.</b><br>");
+    document.write("FIT-Level: " + window.CORE.fit + "<br>");
+} else {
+    document.write("Kein FIT durch Gate.<br>");
+}
+</script>
+
+<!-- Wurmloch zurück zu FIT -->
+<button onclick="location.href='FIT.html'">
+    zurück zu FIT
+</button>
+
+</body>
+</html>
+
