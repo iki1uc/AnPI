@@ -1,0 +1,26 @@
+RESPO = body.raw
+NAME = body
+ROOT = iki1uc
+SYSTEM = 6E
+MODUL = body
+DIM = D3
+
+ROLLE = Energie / Raum / Eintritt
+FUNKTION = Energie-Motor für C6 / QI / IQQ / GES / DES / MAX-MOVE
+
+C6-MOVE = Energie
+QI = Energie
+IQQ = Doppelenergie
+GES = Energie-Sprung
+DES = Energie-Sprung
+MAX-MOVE = Vollenergie
+
+POSITION = D3 (Energie-Achse)
+PARITY = D4 ↔ D5
+TMP-LAEUFER = SYQ
+
+STABILITAET = 12e
+MODE = REAL-LIVE
+
+STATUS = STABIL
+READY = 100%
