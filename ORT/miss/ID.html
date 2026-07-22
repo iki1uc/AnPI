@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><title>ID – Identität</title></head>
+<body>
+
+<h2>ID – Identitäts‑Generator</h2>
+
+<script src="nanomes3.js"></script>
+<script>
+const sig = new URLSearchParams(window.location.search).get("sig");
+
+CORE.pos = "ID";
+
+let ident = {
+    id: "",
+    state: "",
+    ghost: ""
+};
+
+if (sig === "FIT") {
+    ident.id = "ID-FIT";
+    ident.state = "fit";
+    ident.ghost = "ok";
+} 
+else if (sig === "MISS") {
+    ident.id = "ID-MISS";
+    ident.state = "miss";
+    ident.ghost = "warn";
+} 
+else {
+    ident.id = "ID-NULL";
+    ident.state = "none";
+    ident.ghost = "neutral";
+}
+
+document.write("<b>ID:</b> " + ident.id + "<br>");
+document.write("<b>Status:</b> " + ident.state + "<br>");
+document.write("<b>Ghost:</b> " + ident.ghost + "<br>");
+</script>
+
+<button onclick="location.href='index.html'">zurück</button>
+
+</body>
+</html>
+
