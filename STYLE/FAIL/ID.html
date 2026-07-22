@@ -1,0 +1,20 @@
+if (sig === "FIT") {
+    ident.id = "ID-FIT";
+    ident.state = "fit";
+    ident.ghost = "ok";
+}
+else if (sig === "MISS") {
+    ident.id = "ID-MISS";
+    ident.state = "miss";
+    ident.ghost = "warn";
+}
+else if (sig === "FAIL") {
+    ident.id = "ID-FAIL";
+    ident.state = "fail";
+    ident.ghost = "fail";
+}
+else {
+    ident.id = "ID-NULL";
+    ident.state = "none";
+    ident.ghost = "neutral";
+}
