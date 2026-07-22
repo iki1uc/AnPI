@@ -1,1 +1,18 @@
+Engine.PX = {
+  "●": "dark",
+  "▲": "herb",
+  "✦": "berry",
+  "⊖": "removed",
+  "⊕": "free",
+  "◇": "memory",
+  "□": "link",
+  "↗": "move_up",
+  "↘": "move_down",
+  "⚑": "fix",
+  "⚡": "impulse",
+  "∞": "loop",
+  "⊗": "bound",
+  "○": "water",
+  "△": "air"
+};
 
