@@ -1,0 +1,26 @@
+<script src="../AI/ENGINE/NC.verify.js"></script>
+
+<script>
+(async function(){
+
+  const stations = [
+    "../HEAD/verify.html",
+    "../BODY/verify.html",
+    "../RUN/verify.html",
+    "../QI/verify.html",
+    "../MIND/verify.html",
+    "../GRUN/verify.html"
+  ];
+
+  const results = [];
+
+  for(const s of stations){
+    const html = await fetch(s).then(r => r.text());
+    const data = window.NC_ROOM_RESULT; // von jeder verify.html gesetzt
+    results.push(data);
+  }
+
+  console.log(results);
+
+})();
+</script>
