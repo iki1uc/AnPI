@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>CH – Gate</title></head>
+<body>
+
+<h2>CH – Gate aktiv</h2>
+
+<script src="nanomes3.js"></script>
+<script>
+// Gate-Empfang
+const inp = new URLSearchParams(window.location.search).get("sig");
+
+CORE.pos = "CH";
+
+// Entscheidung
+if (inp === "FIT") {
+    CORE.ghost = "ok";
+    window.location.href = "ID.html?sig=FIT";
+} 
+else if (inp === "MISS") {
+    CORE.miss = true;
+    CORE.ghost = "warn";
+    window.location.href = "ID.html?sig=MISS";
+} 
+else {
+    CORE.ghost = "neutral";
+    document.write("CH: kein gültiger Impuls<br>");
+}
+</script>
+
+</body>
+</html>
+
