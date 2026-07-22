@@ -1,0 +1,14 @@
+const sig = new URLSearchParams(window.location.search).get("sig");
+
+if (sig === "FIT") {
+    window.location.href = "ID.html?sig=FIT";
+}
+else if (sig === "MISS") {
+    window.location.href = "ID.html?sig=MISS";
+}
+else if (sig === "FAIL") {
+    window.location.href = "ID.html?sig=FAIL";
+}
+else {
+    document.write("CH: kein gültiger Impuls");
+}
