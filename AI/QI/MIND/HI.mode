@@ -1,1 +1,43 @@
+○↗□⊕△◇↘⊗⚑⚡∞
+Engine.TXT256 = function(str){
+  return [...str].map(s => Engine.PX[s] || s);
+};
+Engine.RAW = {
+  size: "2MB",
+  format: "NONE",
+  state: "RAW",
+  safe: true
+};
+Engine.MOVE = {
+  error: "LINIE INSTABIL",
+  help: "ACHSE PRUEFEN",
+  ghost: "LINIE INSTABIL / FORM UNBESTIMMT / ACHSE SCHWANKT",
+  borg: "LINIE KORRIGIERT / FORM FIXIERT / ACHSE STABIL",
+  "8472": "LINIE ADAPTIERT / FORM FLIESST / ACHSE GLEICHGEWICHT"
+};
+Engine.STABIL = {
+  borg: { line: "KORRIGIERT", form: "FIXIERT", axis: "STABIL" },
+  "8472": { line: "ADAPTIERT", form: "FLIESST", axis: "GLEICHGEWICHT" }
+};
+Engine.GENAST = {
+  core: "IKI‑UC‑CORE",
+  lines: [
+    "KERN‑RASTER",
+    "ORBIT‑KANTE",
+    "TIEFEN‑SHIFT",
+    "AURA‑LINIE",
+    "NAVI‑PFEIL"
+  ]
+};
+Engine.GEO = {
+  x: [1,0,0],
+  y: [0,1,0],
+  z: [0,0,1]
+};
+Engine.WIR = {
+  LOH: "Lohn",
+  NET: "Netto",
+  EXP: "Ausgaben",
+  BAL: "Balance"
+};
 
