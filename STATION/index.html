@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>STATION · AnPI</title>
+
+<style>
+body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+h1 { color:#6cf; letter-spacing:4px; margin-bottom:30px; }
+pre { background:#111; padding:20px; border-left:3px solid #6cf; }
+</style>
+
+<script type="module">
+import { loadUniversal } from "../INDEX/loader.js";
+await loadUniversal();
+
+const { RUN8, VECTOR, KANAL, ARG, M81, MRAW, MFULL, FOURU } = window.AnPI;
+
+const run8 = RUN8.RUN8_bind({
+  pulse(){ return 1; },
+  axis(){ return "N"; },
+  sequence(){ return "SEQ"; }
+});
+
+const vec = VECTOR.VECTOR_pipe({ axis:"N" });
+const kanal = KANAL.kanal(vec);
+
+const result = {
+  station: "STATION",
+  run8,
+  vec,
+  kanal,
+  arg: ARG.ARG("ok"),
+  xarg: ARG.xARG("test"),
+  xarg4u: ARG.XARG("validate", FOURU),
+  matrix: {
+    raw: MRAW.default,
+    m81: M81.default,
+    full: MFULL.default
+  }
+};
+
+window.STATION_RESULT = result;
+</script>
+
+</head>
+<body>
+
+<h1>STATION · AnPI</h1>
+<pre id="out"></pre>
+
+<script>
+document.getElementById("out").innerText =
+  JSON.stringify(window.STATION_RESULT, null, 2);
+</script>
+
+</body>
+</html>
