@@ -39,7 +39,7 @@ READY = 100%
 <hr>
 
 <section id="modules">
-<h3>Geladene PIPE-Module</h3>
+<h3>PIPE-Module</h3>
 
 <ul class="module-list">
 
@@ -72,6 +72,22 @@ READY = 100%
   <li>✔ TMP — <a href="nc.tmp.index.json">nc.tmp.index.json</a></li>
   <li>✔ RAW — <a href="nc.raw.json">nc.raw.json</a></li>
 </ul>
+</section>
+
+<hr>
+
+<section id="routing">
+<h3>Routing-Matrix</h3>
+
+<pre>
+ROM → PIPE → NC
+ROM → PIPE → TMP → NC
+TMP → PIPE → NC
+NC → PIPE → TMP
+NC → PIPE → ROM
+</pre>
+
+<p>Diese Matrix wird durch PIPE_INDEX + PIPE_META + PIPE_HOTSWAP gesteuert.</p>
 </section>
 
 <hr>
