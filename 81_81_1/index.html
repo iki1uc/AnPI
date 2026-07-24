@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A81-Axis · RESPO-100 · RESPO-360</title>
+
+<style>
+body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+h1 { color:#6cf; text-align:center; }
+pre {
+    background:#111;
+    padding:20px;
+    border-left:3px solid #6cf;
+}
+</style>
+
+<script type="module">
+import { buildRespo100 } from "./respo100.js";
+import { buildRespo360 } from "./respo360.js";
+import { buildDashboard } from "./respoDashboard.js";
+
+window.onload = () => {
+    const r100 = buildRespo100();
+    const r360 = buildRespo360();
+    const dash = buildDashboard(r100, r360);
+
+    document.getElementById("out").innerText =
+        JSON.stringify(dash, null, 2);
+};
+</script>
+
+</head>
+
+<body>
+
+<h1>A81-Axis · RESPO-100 · RESPO-360</h1>
+
+<pre id="out">Lade…</pre>
+
+</body>
+</html>

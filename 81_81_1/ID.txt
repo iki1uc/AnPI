@@ -1,0 +1,4 @@
+AXIOM-ID: 81_81_1-001
+CORE: Φ
+POS: (1, Φ)
+CODE: Φ
