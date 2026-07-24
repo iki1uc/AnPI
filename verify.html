@@ -1,26 +1,38 @@
-<script src="../AI/ENGINE/NC.verify.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Verify · Station</title>
+<script type="module">
 
-<script>
-(async function(){
+import { loadUniversal } from "../INDEX/loader.js";
+await loadUniversal();
 
-  const stations = [
-    "../HEAD/verify.html",
-    "../BODY/verify.html",
-    "../RUN/verify.html",
-    "../QI/verify.html",
-    "../MIND/verify.html",
-    "../GRUN/verify.html"
-  ];
+// Zugriff auf alle Systeme
+const { RUN8, VECTOR, KANAL, ARG, M81, MRAW, MFULL, FOURU } = window.AnPI;
 
-  const results = [];
-
-  for(const s of stations){
-    const html = await fetch(s).then(r => r.text());
-    const data = window.NC_ROOM_RESULT; // von jeder verify.html gesetzt
-    results.push(data);
+// Station‑Test
+const test = {
+  station: location.pathname,
+  run8: RUN8.RUN8_bind({ pulse(){return 1}, axis(){return "N"}, sequence(){return "SEQ"} }),
+  vector: VECTOR.VECTOR_pipe({ axis:"N" }),
+  kanal: KANAL.kanal({ vector:"VECTOR(N)", sat:"SAT", nc:"NC", worm:"WORM" }),
+  arg: ARG.ARG("ok"),
+  xarg: ARG.xARG("test"),
+  xarg4u: ARG.XARG("validate", FOURU),
+  matrix: {
+    raw: MRAW.default,
+    m81: M81.default,
+    full: MFULL.default
   }
+};
 
-  console.log(results);
+// Ergebnis global setzen
+window.NC_ROOM_RESULT = test;
 
-})();
 </script>
+</head>
+<body>
+Verify läuft…
+</body>
+</html>
